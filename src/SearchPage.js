@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Booklist from './Booklist'
+
 export default class SearchPage extends Component {
     render() {
         return (
@@ -20,7 +22,7 @@ export default class SearchPage extends Component {
                 </div>
             </div>
             <div className="search-books-results">
-              <BookList />
+              <Booklist />
             </div>
           </div>
         )
