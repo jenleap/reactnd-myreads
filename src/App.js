@@ -8,7 +8,13 @@ import ShelfPage from './ShelfPage'
 
 export default class BooksApp extends Component {
   state = {
-    
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
   }
 
   render() {
@@ -16,7 +22,7 @@ export default class BooksApp extends Component {
       <div className="app">
           <Route exact path="/"
             render={() => (
-              <ShelfPage />
+              <ShelfPage books={this.state.books}/>
             )}/>
           
           <Route path="/search"
