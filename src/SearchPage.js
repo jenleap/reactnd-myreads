@@ -28,7 +28,8 @@ export default class SearchPage extends Component {
                 </div>
             </div>
             <div className="search-books-results">
-              <Booklist list={this.state.searchResults} />
+              <Booklist list={this.state.searchResults}
+                onChange={this.props.onChange}/>
             </div>
           </div>
         )

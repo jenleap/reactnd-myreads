@@ -7,8 +7,11 @@ import SearchPage from './SearchPage'
 import ShelfPage from './ShelfPage'
 
 export default class BooksApp extends Component {
-  state = {
-    books: []
+
+  constructor(props){
+    super(props)
+    this.updateShelf = this.updateShelf.bind(this)
+    this.state = { books: [] }
   }
 
   componentDidMount() {
@@ -17,17 +20,29 @@ export default class BooksApp extends Component {
     })
   }
 
+  updateShelf(newShelf, b) {
+    var newBook = b
+    newBook.shelf = newShelf
+    var books = this.state.books.filter(book => 
+      book.id !== b.id)
+    books.push(b)
+    this.setState({ books })
+  }
+
   render() {
     return (
       <div className="app">
           <Route exact path="/"
             render={() => (
-              <ShelfPage books={this.state.books}/>
+              <ShelfPage 
+                books={this.state.books}
+                onChange={this.updateShelf} />
             )}/>
           
           <Route path="/search"
             render={() => (
-              <SearchPage />
+              <SearchPage 
+                onChange={this.updateShelf}/>
             )}/>
       </div>
     )

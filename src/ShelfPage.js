@@ -36,7 +36,8 @@ export default class ShelfPage extends Component {
                         <div className="bookshelf" key={shelf.title}>
                             <h2 className="bookshelf-title">{shelf.title}</h2>
                             <div className="bookshelf-books">
-                                <Booklist list={shelf.books}/>
+                                <Booklist list={shelf.books}
+                                    onChange={this.props.onChange}/>
                             </div>
                         </div>
                     ))}
