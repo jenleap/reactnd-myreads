@@ -11,9 +11,13 @@ export default class SearchPage extends Component {
     }
 
     search(e) {
-    BooksAPI.search(e, 20).then((books) => {
-            this.setState({ searchResults: books })
-        })
+        if (e.length === 0) {
+            this.setState({ searchResults: [] })
+        } else {
+            BooksAPI.search(e, 20).then((books) => {
+                this.setState({ searchResults: books })
+            })
+        }
     }
 
     render() {
