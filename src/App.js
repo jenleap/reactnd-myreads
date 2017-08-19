@@ -21,9 +21,9 @@ export default class BooksApp extends Component {
   }
 
   updateShelf(newShelf, b) {
-    var newBook = b
+    let newBook = b
     newBook.shelf = newShelf
-    var books = this.state.books.filter(book => 
+    let books = this.state.books.filter(book => 
       book.id !== b.id)
     books.push(b)
     this.setState({ books })
