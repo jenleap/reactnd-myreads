@@ -20,7 +20,7 @@ export default class Book extends Component {
                         `https://books.google.com/googlebooks/images/no_cover_thumb.gif`}
                         alt={book.title}/>
                     <div className="book-shelf-changer">
-                        <select defaultValue={book.shelf} onChange={(event) => this.moveShelf(event.target.value)}>
+                        <select value={book.shelf} onChange={(event) => this.moveShelf(event.target.value)}>
                             <option value="none" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>

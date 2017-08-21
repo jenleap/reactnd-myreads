@@ -42,6 +42,7 @@ export default class BooksApp extends Component {
           <Route path="/search"
             render={() => (
               <SearchPage 
+                shelvedBooks={this.state.books}
                 onChange={this.updateShelf}/>
             )}/>
       </div>
