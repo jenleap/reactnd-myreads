@@ -6,7 +6,7 @@ import Booklist from './Booklist'
 export default class ShelfPage extends Component {
 
     createShelves = () => {
-        let shelves = [
+        const shelves = [
         { 
             title: "Currently Reading",
             books: this.props.books.filter( book => 
@@ -24,10 +24,6 @@ export default class ShelfPage extends Component {
         }
         ]
         return shelves
-    }
-
-    componentWillMount() {
-        this.createShelves(this.props.books);
     }
 
     render() {
