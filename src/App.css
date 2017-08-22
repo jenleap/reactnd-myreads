@@ -170,7 +170,8 @@ body, .app {
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
-  max-height: 200px;
+  width: 130px;
+  height: 200px;
 }
 .book-cover-title {
   padding: 20px 10px 0;
