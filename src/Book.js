@@ -3,7 +3,7 @@ import * as BooksAPI from './BooksAPI'
 
 export default class Book extends Component {
 
-    moveShelf(e) { 
+    moveShelf = (e) => { 
         BooksAPI.update(this.props.book, e);
         this.props.onChange(e, this.props.book)
     }

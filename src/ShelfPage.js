@@ -5,9 +5,8 @@ import Booklist from './Booklist'
 
 export default class ShelfPage extends Component {
 
-    render() {
-
-        var shelves = [
+    createShelves = () => {
+        let shelves = [
         { 
             title: "Currently Reading",
             books: this.props.books.filter( book => 
@@ -23,8 +22,15 @@ export default class ShelfPage extends Component {
             books: this.props.books.filter( book => 
                 book.shelf === "read")
         }
-    ]
+        ]
+        return shelves
+    }
 
+    componentWillMount() {
+        this.createShelves(this.props.books);
+    }
+
+    render() {
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -32,7 +38,7 @@ export default class ShelfPage extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                    {shelves.map( shelf => (
+                    {this.createShelves().map( shelf => (
                         <div className="bookshelf" key={shelf.title}>
                             <h2 className="bookshelf-title">{shelf.title}</h2>
                             <div className="bookshelf-books">

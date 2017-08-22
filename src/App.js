@@ -8,11 +8,7 @@ import ShelfPage from './ShelfPage'
 
 export default class BooksApp extends Component {
 
-  constructor(props){
-    super(props)
-    this.updateShelf = this.updateShelf.bind(this)
-    this.state = { books: [] }
-  }
+  state = { books: [] }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -20,12 +16,10 @@ export default class BooksApp extends Component {
     })
   }
 
-  updateShelf(newShelf, b) {
-    let newBook = b
-    newBook.shelf = newShelf
-    let books = this.state.books.filter(book => 
-      book.id !== b.id)
-    books.push(b)
+  updateShelf = (newShelf, b) => {
+    const newBook = {...b, shelf: newShelf }
+    const books = this.state.books.filter(book => 
+      book.id !== b.id).concat([newBook])
     this.setState({ books })
   }
 

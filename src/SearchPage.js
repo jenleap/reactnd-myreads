@@ -6,11 +6,9 @@ import Booklist from './Booklist'
 
 export default class SearchPage extends Component {
 
-    state = {
-      searchResults: []
-    }
+    state = { searchResults: [] }
 
-    addShelves(books) {
+    addShelves = (books) => {
         books.forEach((book) => {
             this.props.shelvedBooks.forEach((b) => {
                 if (b.id === book.id) {
@@ -21,7 +19,7 @@ export default class SearchPage extends Component {
         this.setState({ searchResults: books })
     }
 
-    search(e) {
+    search = (e) => {
         if (e.length === 0) {
             this.setState({ searchResults: [] })
         } else {
